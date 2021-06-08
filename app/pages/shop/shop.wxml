@@ -1,0 +1,59 @@
+<view class="head">
+  <view class="shop">
+    <view class="name">{{cinemaname}}</view>
+    <view class="adress">{{cinemaaddress}}</view>
+  </view>
+  <view class="map">
+    <view class="line"></view>
+    <view class="map-wrap" bindtap="openMap">
+      <image src="http://localhost:8888/public/img/icon/mapmark.png" style="width:36rpx;height:36rpx;"></image>
+      <view class="map-let">地图</view>
+    </view>
+  </view>
+</view>
+<view class="select">
+  <scroll-view scroll-x class="movies" style="height:280rpx;">
+    <view wx:for="{{allmovie}}" wx:key="index" class="movies-item" bindtap="tapselect" id="{{index}}">
+      <image src="{{item[0].logo}}" class="movies-pic {{activeindex==index?'movies-pic-active':''}}"></image>
+    </view>
+  </scroll-view>
+  <image src="{{imgUrl}}" style="width:100%;height:280rpx;" class="backImg"></image>
+</view>
+<view class="bottom">
+  <view class="t-movie">
+    <view class="t-tr">
+      <view class="t-title">{{activemovie[0].name}}</view>
+      <view class="t-rating">{{activemovie[0].score}}分</view>
+    </view>
+    <view class="t-jiamjie">主演：{{activemovie[0].lead}}</view>
+  </view>
+  <view>
+    <view class="selectDate">
+      <view wx:for="{{threedays}}" wx:key="index" id="{{index}}" class="oneday {{index==theday?'activeday':''}}" bindtap="selectDate">{{item}}</view>
+    </view>
+    <view class="times">
+      <navigator bindtap="seat" class="time" data-index="{{index}}" wx:for="{{todaysingin}}" wx:key="index" wx:if="{{todaysingin}}">
+        <view class="">
+          <view class="start">{{item.start}}</view>
+          <view class="glr">{{item.end}}散场</view>
+        </view>
+        <view class="eg">
+          <view class="effects">{{activemovie[0].language}}</view>
+          <view class="glr room">{{activemovie[0].room}}</view>
+        </view>
+        <view class="pg">
+          <view class="pd">
+            <view class="price"> <text class="priceF">{{activemovie[0].money}}</text><text class="priceL">元</text></view>
+            <view class="discount"><text class="disF">折扣卡</text><text class="disL">10元</text></view>
+          </view>
+          <view class="glr">折扣卡首单特惠</view>
+        </view>
+        <view class="btickets">
+          购票
+        </view>
+      </navigator>
+      <navigator class="wz" wx:if="{{jiaz==11}}">正在加载中...</navigator>
+      <navigator class="wz" wx:if="{{todaysingin.length==0&&jiaz==0}}">当天暂无可放映场次</navigator>
+    </view>
+  </view>
+</view>

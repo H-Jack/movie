@@ -1,0 +1,60 @@
+<form onsubmit="return false;" action="{:url('save')}" data-auto="true" method="post" class='layui-form layui-card' autocomplete="off">
+
+    <div class="layui-card-body">
+
+        <div class="layui-row margin-bottom-15">
+            <label class="layui-col-xs2 think-form-label">所演电影</label>
+            <label class="layui-col-xs10">
+                <select class="layui-select" value="{$vo.moviename|default=''}" name="moviename" lay-search style="display: block" id="moviename">
+                    <option>-- 选择出演电影 --</option>
+                    {volist name="moviename" id="vo" key="k" }
+                    <option>{$vo} </option>
+                    {/volist}
+                </select>
+            </label>
+        </div>
+
+        <div class="layui-row margin-bottom-15">
+            <label class="layui-col-xs2 think-form-label" id="hjhss">播放时间</label>
+            <label class="layui-col-xs10">
+                <select class="layui-select refreshChoice" value="{$vo.status|default=''}" name="status" lay-search style="display: block">
+                    <option>-- 选择时间段 --</option>
+                    <option id="01" value="0">0</option>
+                    <option id="02" value="1">1</option>
+                    <option id="03" value="2">2</option>
+                </select>(0:今天 1:明天 2:后天)
+            </label>
+        </div>
+
+        <div class="layui-row margin-bottom-15">
+            <label class="layui-col-xs2 think-form-label"id="hjhs">电影播放场次</label>
+            <label class="layui-col-xs10">
+                <select class="layui-select refreshChoice" value="{$vo.time|default=''}" name="time" lay-search style="display: block">
+                    <option>-- 选择时间段 --</option>
+                    <option id="1" value="08:00-9:45<">08:00-9:45</option>
+                    <option id="2" value="09:30-11:05">09:30-11:05</option>
+                    <option id="3" value="13:00-15:25">13:00-15:25</option>
+                    <option id="4" value="14:30-16:45">14:30-16:45</option>
+                    <option id="5" value="15:10-17:10">15:10-17:10</option>
+                    <option id="6" value="16:20-18:45">16:20-18:45</option>
+                    <option id="7" value="17:30-19:50">17:30-19:50</option>
+                    <option id="8" value="18:20-20:20">18:20-20:20</option>
+                    <option id="9" value="19:00-21:10">19:00-21:10</option>
+                    <option id="10" value="20:00-22:30">20:00-22:30</option>
+                    <option id="11" value="21:00-23:00">21:00-23:00</option>
+                    <option id="12" value="22:30-00:00">22:30-00:00</option>
+                </select>
+            </label>
+        </div>
+
+
+
+    </div>
+
+    <div class="hr-line-dashed"></div>
+    <div class="layui-form-item text-center">
+        {notempty name='vo.id'}<input type='hidden' value='{$vo.id}' name='id'>{/notempty}
+        <button class="layui-btn" type='submit'>保存数据</button>
+        <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消编辑吗？" data-close>取消编辑</button>
+    </div>
+</form>

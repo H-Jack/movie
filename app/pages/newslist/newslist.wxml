@@ -1,0 +1,12 @@
+<view class="newslist">
+  <view class="title">
+    <view class="titlecont">{{newslist.newstitle}}</view>
+    <view class="titletime">{{newslist.create_time}}</view>
+  </view>
+
+  <image class="logo" src="{{newslist.logo}}"></image>
+
+  <view class="content">
+    {{newslist.content}}
+  </view>
+</view>

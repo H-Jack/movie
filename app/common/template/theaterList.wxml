@@ -1,0 +1,33 @@
+<template name="theaterList">
+  <view wx:for="{{theater}}" wx:key="index">
+    <navigator bindtap="shop" class="theater" id="{{item.id}}" data-index="{{index}}">
+      <view class="shop">
+        <view class="theName">{{item.cinemaname}}</view>
+        <view class="lower">
+          <text class="lowerN">9.9</text>
+          <text class="lowerL">元起</text>
+        </view>
+      </view>
+      <view class="adress">{{item.cinemaaddress}}</view>
+      <view class="tips">
+        <view class="blue tipC">座</view>
+        <view class="blue tipC">退</view>
+        <view class="blue tipC">改签</view>
+        <view class="orang tipC">小吃</view>
+        <view class="orang tipC">折扣卡</view>
+      </view>
+      <view class=" des">
+        <view class="huiL letter">惠</view>
+        <view>特惠电影:立即抢看</view>
+      </view>
+      <view class=" des">
+        <view class="kaL letter">卡</view>
+        <view>开卡购票首单更优惠</view>
+      </view>
+      <view class="times" wx:if="{{item.times}}">
+        <view>近期场次:</view>
+        <view>{{item.times}}</view>
+      </view>
+    </navigator>
+  </view>
+</template>

@@ -1,0 +1,67 @@
+
+<view>
+  <view class="search">
+    <view class="input-wrap">
+      <icon type="search" size="14"></icon>
+      <input class="input" placeholder="{{search.placeholder}}" placeholder-class="placeholderclass" bindconfirm="searchinput" />
+    </view>
+    <navigator url="../movies/index" class="cancel" open-type="switchTab">取消</navigator>
+  </view>
+  
+</view>
+
+
+  <view wx:if="{{theater.length>0}}" wx:for="{{theater}}" wx:key="index">
+    <navigator style="margin-left: 34rpx;" bindtap="shop" class="theater" id="{{item.id}}" data-index="{{index}}">
+      <view class="shop">
+        <view class="theName">{{item.cinemaname}}</view>
+        <view class="lower">
+          <text class="lowerN">9.9</text>
+          <text class="lowerL">元起</text>
+        </view>
+      </view>
+      <view class="adress">{{item.cinemaaddress}}</view>
+      <view class="tips">
+        <view class="blue tipC">座</view>
+        <view class="blue tipC">退</view>
+        <view class="blue tipC">改签</view>
+        <view class="orang tipC">小吃</view>
+        <view class="orang tipC">折扣卡</view>
+      </view>
+      <view class=" des">
+        <view class="huiL letter">惠</view>
+        <view>特惠电影:立即抢看</view>
+      </view>
+      <view class=" des">
+        <view class="kaL letter">卡</view>
+        <view>开卡购票首单更优惠</view>
+      </view>
+      <view class="times" wx:if="{{item.times}}">
+        <view>近期场次:</view>
+        <view>{{item.times}}</view>
+      </view>
+    </navigator>
+  </view>
+  <block wx:if="{{movie.length>0}}" wx:for="{{movie}}" wx:key="index">
+  <navigator data-index="{{index}}" id="{{item.id}}" bindtap="detail">
+    <view style="height:216rpx;" class="movie">
+      <image src="{{item.logo}}" style="height:172rpx;width:122rpx;"></image>
+      <view class="intro-warp">
+        <view style="font-size:12px" class="intro">
+          <view style="font-size:30rpx; color:#222222">{{item.name}}</view>
+          <view style="font-size:24rpx; color:#686868">{{item.type}}</view>
+          <view style="font-size:24rpx;white-space:nowrap;text-overflow:ellipsis;overflow:hidden; color:#686868">主演：{{item.lead}}</view>
+        </view>
+        <view class="buy">
+          <view class="rating">
+            <text>{{item.score}}</text>
+            <text style="font-size:18rpx;">分</text>
+          </view>
+          <navigator catchtap="buy" class="buy-nav">购票</navigator>
+        </view>
+      </view>
+    </view>
+  </navigator>
+</block>
+  <view class="shuju" wx:if="{{sj==1}}">正在搜索中...</view>
+  <view class="shuju" wx:else="{{theater.length==0 || theater==false}}">暂无数据...</view>

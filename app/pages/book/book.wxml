@@ -1,0 +1,19 @@
+<view class="content">
+  <view class="title">{{orderint.moviename}}</view>
+  <view class="red wz" style="margin-top: 17rpx;">{{orderint.time}} {{orderint.Sessions}}</view>
+  <view class="wz">{{orderint.cinemaname}} {{orderint.room}}</view>
+  <view class="wz">{{orderint.seat}}</view>
+</view>
+<view class="order">验证码：{{orderint.ordernumber}}</view>
+<image class="ewm" src="../../img/ewm.png"></image>
+<view class="fg"></view>
+<view class="liu">
+  <view>订单号：{{orderint.ordernumber}}</view>
+  <view>总价：{{orderint.money}}元</view>
+</view>
+<view class="fg"></view>
+<view class="liu">
+  <view>{{orderint.cinemaname}}</view>
+  <view style="color: gray;">{{orderint.cinemaaddress}}</view>
+</view>
+<view bindtap="deleteorder" class="buy">取消订单</view>

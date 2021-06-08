@@ -1,0 +1,63 @@
+<form onsubmit="return false;" action="{:url('save')}" data-auto="true" method="post" class='layui-form layui-card' autocomplete="off">
+
+    <div class="layui-card-body">
+
+        <div class="layui-row margin-bottom-15">
+            <label class="layui-col-xs2 think-form-label">课程名称</label>
+            <label class="layui-col-xs10">
+                <input name="coursename" required value='{$vo.coursename|default=""}' placeholder="课程名称" class="layui-input">
+            </label>
+        </div>
+
+        <div class="layui-row margin-bottom-15">
+            <label class="layui-col-xs2 think-form-label" id="hjhs">授课时间</label>
+            <label class="layui-col-xs10">
+                <select class="layui-select refreshChoice" value="{$vo.classtime|default=''}" name="classtime" lay-search style="display: block">
+                    <option>-- 选择授课时间 --</option>
+                    <option>星期一 1、2节</option>
+                    <option>星期一 3、4节</option>
+                    <option>星期一 5、6节</option>
+                    <option>星期一 7、8节</option>
+                    <option>星期二 1、2节</option>
+                    <option>星期二 3、4节</option>
+                    <option>星期二 5、6节</option>
+                    <option>星期二 7、8节</option>
+                    <option>星期三 1、2节</option>
+                    <option>星期三 3、4节</option>
+                    <option>星期三 5、6节</option>
+                    <option>星期三 7、8节</option>
+                    <option>星期四 1、2节</option>
+                    <option>星期四 3、4节</option>
+                    <option>星期四 5、6节</option>
+                    <option>星期四 7、8节</option>
+                    <option>星期五 1、2节</option>
+                    <option>星期五 3、4节</option>
+                    <option>星期五 5、6节</option>
+                    <option>星期五 7、8节</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="layui-row margin-bottom-15">
+            <label class="layui-col-xs2 think-form-label">授课地点</label>
+            <label class="layui-col-xs10">
+                <input name="classaddress" required value='{$vo.classaddress|default=""}' placeholder="授课地点" class="layui-input">
+            </label>
+        </div>
+
+        <div class="layui-row margin-bottom-15">
+            <label class="layui-col-xs2 think-form-label">课程学分</label>
+            <label class="layui-col-xs10">
+                <input name="classcredit" required value='{$vo.classcredit|default=""}' placeholder="课程学分" class="layui-input">
+            </label>
+        </div>
+
+    </div>
+
+    <div class="hr-line-dashed"></div>
+    <div class="layui-form-item text-center">
+        {notempty name='vo.id'}<input type='hidden' value='{$vo.id}' name='id'>{/notempty}
+        <button class="layui-btn" type='submit'>保存数据</button>
+        <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消编辑吗？" data-close>取消编辑</button>
+    </div>
+</form>

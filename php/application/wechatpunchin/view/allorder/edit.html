@@ -1,0 +1,84 @@
+<form onsubmit="return false;" action="{:request()->url()}" data-auto="true" method="post" class='layui-form layui-card' autocomplete="off">
+
+    <div class="layui-card-body">
+
+        <div class="layui-row margin-bottom-15">
+            <label class="layui-col-xs2 think-form-label">用户名</label>
+            <label class="layui-col-xs10">
+                <input name="username" required value='{$vo.username|default=""}' placeholder="用户名" class="layui-input">
+            </label>
+        </div>
+
+        <div class="layui-row margin-bottom-15">
+            <label class="layui-col-xs2 think-form-label">影院名</label>
+            <label class="layui-col-xs10">
+                <input name="cinemaname" required value='{$vo.cinemaname|default=""}' placeholder="用户名" class="layui-input">
+            </label>
+        </div>
+
+        <div class="layui-row margin-bottom-15">
+            <label class="layui-col-xs2 think-form-label">影院地址</label>
+            <label class="layui-col-xs10">
+                <input name="cinemaaddress" required value='{$vo.cinemaaddress|default=""}' placeholder="用户名" class="layui-input">
+            </label>
+        </div>
+
+        <div class="layui-row margin-bottom-15">
+            <label class="layui-col-xs2 think-form-label">电影名</label>
+            <label class="layui-col-xs10">
+                <input name="moviename" required value='{$vo.moviename|default=""}' placeholder="用户名" class="layui-input">
+            </label>
+        </div>
+
+        <div class="layui-row margin-bottom-15">
+            <label class="layui-col-xs2 think-form-label">播放时间</label>
+            <label class="layui-col-xs10">
+                <input name="time" required value='{$vo.time|default=""}' placeholder="用户名" class="layui-input">
+            </label>
+        </div>
+
+        <div class="layui-row margin-bottom-15">
+            <label class="layui-col-xs2 think-form-label">播放场次</label>
+            <label class="layui-col-xs10">
+                <input name="Sessions" required value='{$vo.Sessions|default=""}' placeholder="用户名" class="layui-input">
+            </label>
+        </div>
+
+        <div class="layui-row margin-bottom-15">
+            <label class="layui-col-xs2 think-form-label">播放厅号</label>
+            <label class="layui-col-xs10">
+                <input name="room" required value='{$vo.room|default=""}' placeholder="用户名" class="layui-input">
+            </label>
+        </div>
+
+        <div class="layui-row margin-bottom-15">
+            <label class="layui-col-xs2 think-form-label">座位号</label>
+            <label class="layui-col-xs10">
+                <input name="seat" required value='{$vo.seat|default=""}' placeholder="用户名" class="layui-input">
+            </label>
+        </div>
+
+        <div class="layui-row margin-bottom-15">
+            <label class="layui-col-xs2 think-form-label">总金额</label>
+            <label class="layui-col-xs10">
+                <input name="money" required value='{$vo.money|default=""}' placeholder="用户名" class="layui-input">
+            </label>
+        </div>
+
+        <div class="layui-row margin-bottom-15">
+            <label class="layui-col-xs2 think-form-label">订单号</label>
+            <label class="layui-col-xs10">
+                <input name="ordernumber" required value='{$vo.ordernumber|default=""}' placeholder="用户名" class="layui-input">
+            </label>
+        </div>
+
+
+    </div>
+
+    <div class="hr-line-dashed"></div>
+    <div class="layui-form-item text-center">
+        {notempty name='vo.id'}<input type='hidden' value='{$vo.id}' name='id'>{/notempty}
+        <button class="layui-btn" type='submit'>保存数据</button>
+        <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消编辑吗？" data-close>取消编辑</button>
+    </div>
+</form>

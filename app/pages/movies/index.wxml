@@ -1,0 +1,74 @@
+<import src="../../common/template/head.wxml" />
+<template is="head" data="{{...head}}" />
+
+<swiper style="height:150rpx;" autoplay="true" interval="2000" circular="true">
+  <block wx:for="{{swiperImg}}" wx:key="*this">
+    <swiper-item>
+      <image src="{{item}}" style="height:100%;width:100%;"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="title">
+  <view class="conventionTop1">
+    <van-dropdown-menu class="publicSize">
+      <van-dropdown-item bind:change="onChange2" value="{{ value1 }}" options="{{ option1 }}" />
+    </van-dropdown-menu>
+  </view>
+</view>
+
+
+
+
+<van-tabs active="{{ active }}" bind:change="onChange">
+  <van-tab title="正在热映">
+    <block wx:for="{{indexData}}" wx:key="index">
+      <navigator data-index="{{index}}" id="{{item.id}}" bindtap="detail">
+        <view style="height:216rpx;" class="movie">
+          <image src="{{item.logo}}" style="height:172rpx;width:122rpx;"></image>
+          <view class="intro-warp">
+            <view style="font-size:12px" class="intro">
+              <view style="font-size:30rpx; color:#222222">{{item.name}}</view>
+              <view style="font-size:24rpx; color:#686868">{{item.type}}</view>
+              <view style="font-size:24rpx;white-space:nowrap;text-overflow:ellipsis;overflow:hidden; color:#686868">
+                主演：{{item.lead}}</view>
+            </view>
+            <view class="buy">
+              <view class="rating">
+                <text>{{item.score}}</text>
+                <text style="font-size:18rpx;">分</text>
+              </view>
+              <navigator catchtap="buy" class="buy-nav">购票</navigator>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </van-tab>
+  <van-tab title="即将上映">
+    <block wx:for="{{nearmovie}}" wx:key="index">
+      <navigator data-index="{{index}}" id="{{item.id}}" bindtap="detaill">
+        <view style="height:216rpx;" class="movie">
+          <image src="{{item.logo}}" style="height:172rpx;width:122rpx;"></image>
+          <view class="intro-warp">
+            <view style="font-size:12px" class="intro">
+              <view style="font-size:30rpx; color:#222222">{{item.name}}</view>
+              <view style="font-size:24rpx; color:#686868">{{item.type}}</view>
+              <view style="font-size:24rpx;white-space:nowrap;text-overflow:ellipsis;overflow:hidden; color:#686868">
+                主演：{{item.lead}}</view>
+            </view>
+            <view class="buy">
+              <view class="rating">
+                <text>{{item.score}}</text>
+                <text style="font-size:18rpx;">分</text>
+              </view>
+              <navigator style="border: 1rpx solid #8f8ffb;color: #8f8ffb;" catchtap="buy" class="buy-nav">
+                预售
+              </navigator>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </van-tab>
+</van-tabs>

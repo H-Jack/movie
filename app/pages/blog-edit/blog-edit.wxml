@@ -1,0 +1,9 @@
+<view class="container">
+  <textarea class="content" placeholder="分享新鲜事..."
+    bindinput="finput" maxlength="140" auto-focus
+    bindfocus="onFocus">
+  </textarea>
+</view>
+<view class="footer" style="bottom:{{footerBottom}}px">
+  <button class="send-btn" bindtap="submit">发布</button>
+</view>

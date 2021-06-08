@@ -1,0 +1,21 @@
+<view wx:for="{{orderlist}}" wx:key="index" data-index="{{index}}" bindtap="orderint">
+  <view class="top">
+    <view>{{item.cinemaname}}></view>
+  </view>
+  <view class="content">
+    <view class="flex">
+      <image class="imgg" src="{{item.logo}}"></image>
+    </view>
+    <view class="flex name" style="flex-direction: column;">
+      <view>{{item.moviename}}</view>
+      <view class="publiccolor margint">{{item.time}} {{item.Sessions}}</view>
+      <view class="publiccolor">{{item.room}} {{item.seat}}</view>
+      <view catchtap="deleteorder" data-index="{{index}}" style="position: relative;left: 416rpx;color: red;font-size: 31rpx;">取消订单</view>
+    </view>
+  </view>
+  <view class="publiccolor bott">
+    <view>总价：{{item.money}}元</view>
+    <view>已完成</view>
+  </view>
+  <view class="fg"></view>
+</view>

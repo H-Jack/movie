@@ -1,0 +1,78 @@
+<image src="{{detail.logo}}" class="filter"></image>
+<view class="head">
+  <view class="cover">
+    <navigator url="" class="playUrl">
+      <image src="{{detail.logo}}" style="width:212rpx;height:290rpx;"></image>
+    </navigator>
+    <view class="jianjie">
+      <view>
+        <view class="mTitle">{{detail.name}}</view>
+      </view>
+      <view class="rater">
+        <view class="space">
+          <view class="subject">观众评分</view>
+          <text class="rateN">{{detail.score}}</text>
+          <text class="rateP">(50万人测)</text>
+        </view>
+        <view>
+          <view class="subject">专业评分</view>
+          <text class="rateN">6.7</text>
+          <text class="rateP">(50人评)</text>
+        </view>
+      </view>
+      <view>
+        <view class="area">{{detail.type}}</view>
+        <view class="area">{{detail.country}}</view>
+        <view class="area">{{detail.showtime}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="control">
+    <view class="islooked like">想看</view>
+    <navigator url="" class="like">评分</navigator>
+  </view>
+</view>
+<view catchtap="flex">
+  <view class="plot {{flexed?'':'flex'}}">{{detail.introduction}}</view>
+  <view class="arrow {{flexed?'uparrow':'downarrow'}}"></view>
+</view>
+<view class="warp" style="height:346rpx;">
+  <view class="tBar">演职人员</view>
+  <scroll-view scroll-x style="width:100%">
+    <view class="actorLi">
+      <view wx:for="{{movieactor}}" wx:key="index" class="acItem">
+        <image src="{{item.logo}}" style="width:134rpx;height:172rpx;margin-bottom:18rpx;"></image>
+        <view class="textOver">{{item.name}}</view>
+        <view style="color:#9B9B9B;" class="textOver">{{item.role}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view class="audience">
+  <view class="mark-head">
+    <view class="au-mark">观众评论</view>
+    <navigator bindtap="blogedit" class="my-mark">我的短评</navigator>
+  </view>
+  <view>
+    <view wx:for="{{message}}" wx:key="index" class="audience-item">
+      <view class="avatarUrl">
+        <image src="{{item.logo}}" style="width:58rpx;height:58rpx; border-radius: 50%;"></image>
+      </view>
+      <view class="audienceD">
+        <view>
+          <view class="nickName">{{item.username}}</view>
+          <view></view>
+        </view>
+        <view class="pWord">{{item.content}}</view>
+        <view class="dToa">
+          <view>{{item.create_time}}</view>
+          <view style="margin-right:36rpx;">{{item.admire}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <navigator url=""></navigator>
+</view>
+<navigator wx:if="{{detail.id.length>5}}" url="../../theaterList/theaterList?title={{detail.title}}&id={{detail.id}}" style="background-color:#8f8ffb" class="buy">即将上映</navigator>
+<navigator wx:else url="../../theaterList/theaterList?title={{detail.title}}&id={{detail.id}}" class="buy">优惠购票</navigator>
+<view style="height:100px;"></view>

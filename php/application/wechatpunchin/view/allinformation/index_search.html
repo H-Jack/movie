@@ -1,0 +1,34 @@
+<fieldset>
+
+    <legend>条件搜索</legend>
+
+    <form style="text-align: right;" enctype="multipart/form-data" action="{:url('wechatpunchin/Allmovie/upload')}" method="post" class="form-horizontal">
+        <input type="file" name="file" class="form-control form-control-file" accept=".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+        <input type="submit" value="上传">
+    </form>
+
+    <form class="layui-form layui-form-pane form-search" action="{:request()->url()}" onsubmit="return false" method="get" autocomplete="off">
+
+        <div class="layui-form-item layui-inline">
+            <label class="layui-form-label">电影名称</label>
+            <div class="layui-input-inline">
+                <input name="name" value="{$Think.get.name|default=''}" placeholder="请输入电影名称" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-inline">
+            <label class="layui-form-label">电影管理员</label>
+            <div class="layui-input-inline">
+                <input name="administrators" value="{$Think.get.administrators|default=''}" placeholder="请输入电影管理员" class="layui-input">
+            </div>
+        </div>
+
+
+        <div class="layui-form-item layui-inline">
+            <button class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe615;</i> 搜 索</button>
+        </div>
+    </form>
+
+</fieldset>
+
+<script>form.render()</script>

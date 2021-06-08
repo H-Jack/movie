@@ -1,0 +1,21 @@
+<!--pages/news/news.wxml-->
+<view>
+  <view class="smallBox" wx:for="{{newslist}}" data-index="{{index}}" wx:key="index" wx:for-item="item" bindtap="newslist">
+    <view class="nav">
+      <view class="content">
+        <view class="texts">
+          <!-- 文章标题 -->
+          <text class="title">{{item.newstitle}}</text>
+        </view>
+        <view class="address">
+          <!-- 文章出品时间 -->
+          <text class="times">{{item.create_time}}</text>
+        </view>
+      </view>
+      <view class="images">
+        <!-- 文章图片 -->
+        <image src="{{item.logo}}" style="width: 205rpx;height: 109.125px"></image>
+      </view>
+    </view>
+  </view>
+</view>
